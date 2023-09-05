@@ -18,7 +18,7 @@
 					</div>
 					<div>
 						<button
-							class="our-button"
+							class="text-sm text-white rounded-md bg-main py-2 px-5"
 							@click="save"
 						>
 							SUBMIT

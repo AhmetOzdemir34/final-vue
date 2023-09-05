@@ -47,7 +47,7 @@
 								CANCEL
 							</button>
 							<button
-								class="update-button text-[10px] py-2 px-4"
+								class="text-[10px] py-2 px-4 bg-main text-white rounded-md"
 								@click="update"
 							>
 								UPDATE
@@ -66,9 +66,10 @@
 				<div class="flex gap-x-2 items-center">
 					<LikeIcon
 						class="cursor-pointer"
+						:class="{ 'text-main': props.like }"
 						@click="like(props.id)"
 					/>
-					<span style="color: #c1c8ce">{{
+					<span :class="{ 'text-main': props.like }">{{
 						props.like ? '1' : '0'
 					}}</span>
 				</div>
@@ -77,9 +78,7 @@
 						class="cursor-pointer"
 						@click="dislike(props.id)"
 					/>
-					<span style="color: #c1c8ce">{{
-						props.dislike ? '1' : '0'
-					}}</span>
+					<span>{{ props.dislike ? '1' : '0' }}</span>
 				</div>
 			</div>
 			<div class="flex gap-x-2">
