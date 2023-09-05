@@ -41,6 +41,12 @@
 						</div>
 						<div>
 							<button
+								class="text-[10px] text-slate-400 py-2 px-4"
+								@click="changeEditable"
+							>
+								CANCEL
+							</button>
+							<button
 								class="update-button text-[10px] py-2 px-4"
 								@click="update"
 							>
@@ -93,7 +99,6 @@
 <script setup>
 import DeleteIcon from '../icons/DeleteIcon.vue';
 import EditIcon from '../icons/EditIcon.vue';
-import CheckIcon from '../icons/CheckIcon.vue';
 import LikeIcon from '../icons/LikeIcon.vue';
 import DislikeIcon from '../icons/DislikeIcon.vue';
 

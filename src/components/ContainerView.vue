@@ -78,6 +78,7 @@ const save = () => {
 	localStorage.setItem('contents', JSON.stringify(contents.value));
 	content.value = contentReset();
 };
+
 const deleteItem = (value) => {
 	contents.value = contents.value.filter((item) => item.id !== value);
 	localStorage.setItem('contents', JSON.stringify(contents.value));
@@ -136,6 +137,7 @@ const timeFormatting = () => {
 			: '0' + String(today.getMinutes())
 	}`;
 };
+
 const contentReset = () => {
 	return {
 		id: 0,
@@ -151,7 +153,7 @@ const contentReset = () => {
 <style scoped>
 .list-enter-active,
 .list-leave-active {
-	transition: all 0.5s ease;
+	transition: all 0.15s ease;
 }
 .list-enter-from,
 .list-leave-to {
