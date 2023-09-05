@@ -1,7 +1,21 @@
-# Vue 3 + Vite
+# Vue 3 + Vite + Javascript
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Bundler olarak Vite, dil olarak Javascript (Typescript belirtilmediği için) kullanılmıştır.
 
-## Recommended IDE Setup
+Javascript Framework olarak Vue3, css framework olarak TailwindCSS kullanılmıştır.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+İkonlar projeye icons klasörüne dahil edilerek kullanılmıştır.
+
+Proje için belirtilen tüm maddeler hazırlanmıştır, test etmek için bilgisayarınıza **Node ve NPM** kurunuz.
+
+Daha sonrasında `npm install -g yarn` ile mevcut projenin paket yöneticisini kurunuz.
+
+Hemen arkasından;
+
+`yarn`
+
+ve
+
+`yarn dev`
+
+diyerek projenizi çalıştırınız.
