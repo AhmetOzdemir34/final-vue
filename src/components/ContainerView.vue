@@ -40,6 +40,8 @@
 						:dislike="item.dislike"
 						@delete-item="deleteItem"
 						@update-item="updateItem"
+						@like-item="likeItem"
+						@dislike-item="dislikeItem"
 					/>
 				</div>
 			</TransitionGroup>
@@ -87,6 +89,24 @@ const updateItem = (newNote, id) => {
 		if (id === item.id) item.note = newNote;
 	});
 	localStorage.setItem('contents', JSON.stringify(contents.value));
+};
+
+const likeItem = (id) => {
+	contents.value.forEach((item) => {
+		if (id === item.id) {
+			item.like = !item.like;
+			item.dislike = false;
+		}
+	});
+};
+
+const dislikeItem = (id) => {
+	contents.value.forEach((item) => {
+		if (id === item.id) {
+			item.dislike = !item.dislike;
+			item.like = false;
+		}
+	});
 };
 
 const dateFormatting = () => {

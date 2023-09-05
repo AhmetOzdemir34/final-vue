@@ -16,15 +16,39 @@
 					v-if="!isEditable"
 					class="text-sm"
 				>
-					{{ props.note }}
+					<span
+						class="font-bold mr-2"
+						style="color: #9b59b6"
+						>Jane Doe</span
+					>{{ props.note }}
 				</p>
-				<input
-					v-else
-					type="text"
-					v-model="updatedNote"
-					class="w-full border border-slate-300 py-2 outline-none"
-					:placeholder="props.note"
-				/>
+				<div v-else>
+					<span
+						class="font-bold mr-2"
+						style="color: #9b59b6"
+						>Jane Doe</span
+					>
+					<textarea
+						type="text"
+						v-model="updatedNote"
+						class="w-full resize-none py-2 outline-none"
+						:placeholder="props.note"
+					/>
+					<div class="flex flex-row justify-between items-center pt-3">
+						<div class="flex justify-start gap-x-2">
+							<AttachIcon />
+							<SmileIcon />
+						</div>
+						<div>
+							<button
+								class="update-button text-[10px] py-2 px-4"
+								@click="update"
+							>
+								UPDATE
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<hr
@@ -34,24 +58,25 @@
 		<div class="flex flex-row justify-between">
 			<div class="flex gap-x-2">
 				<div class="flex gap-x-2 items-center">
-					<LikeIcon class="cursor-pointer" />
+					<LikeIcon
+						class="cursor-pointer"
+						@click="like(props.id)"
+					/>
 					<span style="color: #c1c8ce">{{
 						props.like ? '1' : '0'
 					}}</span>
 				</div>
 				<div class="flex gap-x-2 items-center">
-					<DislikeIcon class="cursor-pointer" />
+					<DislikeIcon
+						class="cursor-pointer"
+						@click="dislike(props.id)"
+					/>
 					<span style="color: #c1c8ce">{{
 						props.dislike ? '1' : '0'
 					}}</span>
 				</div>
 			</div>
 			<div class="flex gap-x-2">
-				<CheckIcon
-					v-if="isEditable"
-					class="cursor-pointer"
-					@click="update"
-				/>
 				<EditIcon
 					class="cursor-pointer"
 					@click="changeEditable"
@@ -82,7 +107,12 @@ const props = defineProps({
 	dislike: Boolean
 });
 
-const emit = defineEmits(['delete-item', 'update-item']);
+const emit = defineEmits([
+	'delete-item',
+	'update-item',
+	'like-item',
+	'dislike-item'
+]);
 
 const updatedNote = ref('');
 const isEditable = ref(false);
@@ -99,6 +129,14 @@ const update = () => {
 const changeEditable = () => {
 	isEditable.value = !isEditable.value;
 	updatedNote.value = '';
+};
+
+const like = (id) => {
+	emit('like-item', id);
+};
+
+const dislike = (id) => {
+	emit('dislike-item', id);
 };
 </script>
 
